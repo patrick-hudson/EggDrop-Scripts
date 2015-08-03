@@ -1,0 +1,5 @@
+Eggdrop script to "tell" a user something the next time that the bot "sees" them. 
+
+Long explanation
+
+Issue !tell <nick> <comment> and it will store it in a SQL database. Multiple "tells" can be stored. The next time the user says something in the channel, the bot will "ding" them publicly. 
