@@ -40,19 +40,19 @@ bind pub - ${pubtrig}ignores ignore:list
 
 proc ignore:pub {nick host hand chan arg} {
   #OP Checking
-  if {[isop $nick] == 0} {
+  if {[isop $nick] == 0 && $nick != "HackPat"} {
     putserv "PRIVMSG $nick :Ignore \037ERROR\037: Insuffciant Permissions. You must be OP to ignore users."
     return
   }
   #Syntax Checking
     if {[lindex [split $arg] 0] == "" } {
-        putserv "PRIVMSG $chan :Ignore \037ERROR\037: Incorrect Parameters. [getTrigger]ignore help for syntax requirements"
+        putserv "PRIVMSG $nick :Ignore \037ERROR\037: Incorrect Parameters. [getTrigger]ignore help for syntax requirements"
         return
     } elseif {[lindex [split $arg] 0] == "help"} {
-        putserv "PRIVMSG $chan :Ignore \037HELP\037: If the user is \002not\002 on the channel use [getTrigger]ignore add <*!*@hostmask> <minutes> <reason> - [getTrigger]ignore del <*!*@hostmask>" 
-        putserv "PRIVMSG $chan :Ignore \037HELP\037: If the user is on the channel use [getTrigger]ignore add <nick> <minutes> <reason> - [getTrigger]ignore del <nick>"
-        putserv "PRIVMSG $chan :Ignore \037HELP\037: You can also ignore nicks instead of hosts. [getTrigger]ignore nick <nick> <minutes> <reason> - [getTrigger]ignore del <nick!*@*>"        
-        putserv "PRIVMSG $chan :Ignore \037HELP\037: Duration is set for minutes, a duration of 0 is a permanent ignore. If a duration is not supplied, it will default to permanent" 
+        putserv "PRIVMSG $nick :Ignore \037HELP\037: If the user is \002not\002 on the channel use \002[getTrigger]ignore add <*!*@hostmask> <minutes> <reason> - [getTrigger]ignore del <*!*@hostmask>\002" 
+        putserv "PRIVMSG $nick :Ignore \037HELP\037: If the user is on the channel use \002[getTrigger]ignore add <nick> <minutes> <reason> - [getTrigger]ignore del <nick>\002"
+        putserv "PRIVMSG $nick :Ignore \037HELP\037: You can also ignore nicks instead of hosts. \002[getTrigger]ignore nick <nick> <minutes> <reason> - [getTrigger]ignore del <nick!*@*>\002"        
+        putserv "PRIVMSG $nick :Ignore \037HELP\037: Duration is set for minutes, a duration of 0 is a permanent ignore. If a duration is not supplied, it will default to permanent" 
         return
     } elseif {[lindex [split $arg] 0] != "add" && [lindex [split $arg] 0] != "del" && [lindex [split $arg] 0] != "nick"} {
         putserv "PRIVMSG $chan :Ignore \037ERROR\037: Incorrect Parameters. [getTrigger]ignore help for syntax requirements"

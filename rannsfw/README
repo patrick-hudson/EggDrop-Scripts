@@ -1,0 +1,10 @@
+Eggdrop script that pulls NSFW images from the imgur api (subreddits). 
+
+Commands: 
+---------
+Public:   !ass - Returns a random ass picture from /r/ass
+          !pussy - Returns a random ass picture from /r/pussy
+          !tits - Returns a random ass picture from /r/Boobies
+          !gif - Returns a random gif picture from /r/NSFW_GIF
+          !nsfw [number] - Returns a list of random pictures from /r/nsfw
+          !nsfw [subreddit] [number] - Returns a list of random pictures from /r/[subreddit]

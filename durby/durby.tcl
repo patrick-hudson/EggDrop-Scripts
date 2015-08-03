@@ -1,5 +1,5 @@
 ################################################################################
-# Copyleft Â©2011 lee8oi@gmail.com                                    +-------+ #
+# Copyleft ©2011 lee8oi@gmail.com                                    +-------+ #
 #                                                                    + 0.3.0 + #
 #                                                                    +-------+ #
 # Durby - https://github.com/lee8oi/durby                                      #
@@ -708,17 +708,14 @@ proc webby {nick uhost handle chan site} {
         if {[regexp -nocase {<div class="body-content">(.*?)} $html]} {
           return "You've entered either a deleted tweet, or a tweet that doesn't exist. Try again!"
         }
-         if {[regexp -nocase {<p class="TweetTextSize TweetTextSize--max js-tweet-text tweet-text" .*?>(.*?)</p>} $html ltweet]} {
+         if {[regexp -nocase {<p class="js-tweet-text tweet-text" .*?>(.*?)</p>} $html ltweet]} {
            #set ago ""
-            regsub -all -nocase -- {<p class="TweetTextSize TweetTextSize--max js-tweet-text tweet-text".*?>(.*?)</p>} $ltweet "\\1" ltweet
+            regsub -all -nocase -- {<p class="js-tweet-text tweet-text".*?>(.*?)</p>} $ltweet "\\1" ltweet
             regsub -all -nocase -- {/hashtag/(.*?)\?src=hash} $ltweet "#\\1" ltweet
             #regsub -all -nocase -- {?src=hash} $ltweet "\\1" ltweet
             # scrub html elements out
             #regsub -all {<.*?>} $ago "" ago 
-            regsub -all -nocase -- {<a .*?>(.*?)</a>} $ltweet "\\1" ltweet
-            regsub -all -nocase -- {<s>(.*?)</s>} $ltweet "\\1" ltweet 
-            regsub -all -nocase -- {<b>(.*?)</b>} $ltweet "\\1" ltweet 
-            regsub -all -nocase -- {<img class="twitter-emoji" src=.*? draggable="false" alt="(.*?)" title=.*?>} $ltweet "\\1" ltweet 
+            regsub -all -nocase -- {<a .*?"(.*?)".*?>(.*?)</a>} $ltweet "\\1" ltweet 
             #regsub -all -nocase -- {_\?\=(.*?) } $ltweet "http://twitter.com\\1 " ltweet
             
             #regsub -all -nocase -- {<div .*?>(.*?)</div>} $ltweet "\\1 " ltweet

@@ -1,0 +1,6 @@
+Eggdrop Script that allows public access for users to register with the bot
+
+Commands
+--------
+Public: !register
+        !unregister

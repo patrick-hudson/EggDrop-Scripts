@@ -1,0 +1,9 @@
+ EggDrop script that allows OPs to ignore users from interacting with your bot.
+
+Commands: 
+---------
+OPs:  !ignore add <*!*host@mask.etc> <duration> <reason>
+      !ignore add <nick> <duration> <reason>
+      !ignore del *!*host@mask.etc
+      !ignores
+      !ignore help

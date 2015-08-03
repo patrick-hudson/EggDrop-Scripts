@@ -85,7 +85,7 @@
 # Sadly, everyone will have to register with Google and request their own API key.
 # An API key is linked to an IP or mask, so you will need to register one for your own.
 # Find detailed instructions above.
-set youtube(api_key)           "AIzaSyCvLosQtBmP1rU1Fjuvc3lWHdIXxDWR87k"
+set youtube(api_key)           ""
 
 # Base URI for links to youtube videos.
 # Either use the normal youtube link or youtu.be for shorter URLs.
